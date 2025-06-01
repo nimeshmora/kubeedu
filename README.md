@@ -41,6 +41,35 @@ Our mission is to hide the complexity of Kubernetes (K8s) and make core concepts
 
 ---
 
+## 🛠️ Tech Stack
+
+### Backend
+
+- **Framework:** FastAPI (Python)
+- **Database:** MongoDB with Motor (async driver)
+- **Authentication:** JWT with bcrypt
+- **API Documentation:** Swagger/OpenAPI
+
+### Frontend
+
+- **Framework:** React with TypeScript
+- **UI Components:** shadcn/ui
+- **State Management:** React Query
+- **Routing:** React Router DOM
+- **API Client:** Axios
+- **Forms:** React Hook Form
+- **Build Tool:** Vite
+- **Package Manager:** Bun
+
+### Development Tools
+
+- **Version Control:** Git
+- **Code Quality:** ESLint, TypeScript
+- **API Testing:** Swagger UI
+- **Development Server:** Uvicorn (backend), Vite Dev Server (frontend)
+
+---
+
 ## 💡 Share Your Ideas
 
 We want your feedback!  
