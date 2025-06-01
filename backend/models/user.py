@@ -14,15 +14,20 @@ class User(BaseModel):
     email: str
     password: str
     is_active: bool = True
-    is_verified: bool = False
+    is_verified: bool = True # Default to True for simplicity
     role: UserRole = UserRole.student
 
     def hash_password(self):
         self.password = bcrypt.hashpw(
-            self.password.encode(), bcrypt.gensalt()).decode()
+            self.password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
     def verify_password(self, password: str) -> bool:
-        return bcrypt.checkpw(password.encode(), self.password.encode())
+        
+        try:
+            return bcrypt.checkpw(password.encode("utf-8"), self.password.encode("utf-8"))
+        except Exception as e:
+            
+            return False
 
     def __str__(self):
         return f"User(name={self.name}, email={self.email}, role={self.role})"

@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
-from backend.routers import auth
-from backend.config import db
+from routers import auth
+from config import db
 from fastapi.middleware.cors import CORSMiddleware
 
 

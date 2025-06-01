@@ -1,2 +1,7 @@
+.PHONY: run
 run:
-	uvicorn backend.main:app --reload
+	uvicorn main:app --reload
+
+.PHONY: install
+install:
+	pip install -r requirements.txt

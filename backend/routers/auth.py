@@ -1,11 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException,status, Response,Request
-from backend.models.user import User,LoginFrom
-from backend.config.db import userCollection
-from backend.config.env import env
-import jwt
-
-SECRET_KEY = env['SECRET_KEY']
-ALGORITHM = env['ALGORITHM']
+from fastapi import APIRouter, Depends, HTTPException, status
+from models.user import User, LoginFrom
+from config.db import userCollection
+from utils.security import create_access_token
+from datetime import timedelta
 
 router = APIRouter(
   prefix="/auth",
@@ -37,9 +34,18 @@ async def login(request: LoginFrom):
     if not user.get("is_active", True):
         raise HTTPException(status_code=403, detail="User is not active")
 
-    token = jwt.encode({"id": str(user["_id"]), "email": user["email"]}, SECRET_KEY, algorithm=ALGORITHM)
+    # Create access token
+    access_token_expires = timedelta(minutes=30)
+    token = create_access_token(
+        subject=str(user["_id"]),
+        expires_delta=access_token_expires
+    )
 
-    return {"message": "Login successful", "token": token}
+    return {
+        "message": "Login successful",
+        "token": token,
+        "token_type": "bearer"
+    }
   
 @router.post("/register")
 async def register(user: User):
