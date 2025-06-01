@@ -70,6 +70,142 @@ Our mission is to hide the complexity of Kubernetes (K8s) and make core concepts
 
 ---
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.12+
+- Node.js 18+ or Bun
+- Package Manager (npm, pnpm, or bun)
+- MongoDB
+- Git
+
+### Backend Setup
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/yourusername/kubeedu.git
+   cd kubeedu
+   ```
+
+2. Set up Python virtual environment
+
+   ```bash
+   python -m venv env
+   source env/bin/activate  # On Windows use: .\env\Scripts\activate
+   ```
+
+3. Install backend dependencies
+
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+
+4. Set up environment variables
+
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+5. Start the backend server
+
+   ```bash
+   make run  # Or: uvicorn main:app --reload
+   ```
+
+   The backend will be available at [http://localhost:8000](http://localhost:8000)
+
+### Frontend Setup
+
+1. Navigate to frontend directory
+
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies
+
+   ```bash
+   # Using bun
+   bun install
+   # OR using npm
+   npm install
+   # OR using pnpm
+   pnpm install
+   ```
+
+3. Set up environment variables
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Start the development server
+
+   ```bash
+   # Using bun
+   bun run dev
+   # OR using npm
+   npm run dev
+   # OR using pnpm
+   pnpm run dev
+   ```
+
+   The frontend will be available at [http://localhost:5173](http://localhost:5173)
+
+### Available Scripts
+
+Backend:
+
+- `make run` - Start the backend server
+- `make install` - Install backend dependencies
+
+Frontend (replace `bun` with `npm` or `pnpm` based on your package manager):
+
+- `bun run dev` - Start the development server
+- `bun run build` - Build for production
+- `bun run lint` - Run ESLint
+- `bun run preview` - Preview production build
+
+### MongoDB Setup
+
+1. Using Docker:
+
+   ```bash
+   docker run --name mongodb -d -p 27017:27017 mongo
+   ```
+
+2. Or install MongoDB locally following the [official documentation](https://docs.mongodb.com/manual/installation/)
+
+### Environment Variables
+
+Backend (.env):
+
+```plaintext
+# MongoDB Configuration
+MONGODB_URL=mongodb://localhost:27017
+DATABASE_NAME=kubeedu
+
+# JWT Configuration
+SECRET_KEY=your-super-secret-key-change-this
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# Server Configuration
+PORT=8000
+HOST=0.0.0.0
+```
+
+Frontend (.env):
+
+```plaintext
+VITE_API_URL=http://localhost:8000/api/v1
+```
+
+---
+
 ## 💡 Share Your Ideas
 
 We want your feedback!  
