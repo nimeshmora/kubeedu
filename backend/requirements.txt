@@ -1,5 +1,6 @@
 annotated-types==0.7.0
 anyio==4.9.0
+bcrypt>=4.1.2,<5.0.0
 certifi==2025.4.26
 click==8.2.1
 dnspython==2.7.0
@@ -15,10 +16,12 @@ Jinja2==3.1.6
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
 mdurl==0.1.2
+motor>=3.3.2,<4.0.0
 pydantic==2.11.5
 pydantic_core==2.33.2
 Pygments==2.19.1
 pymongo==4.13.0
+PyJWT>=2.8.0,<3.0.0
 python-dotenv==1.1.0
 python-multipart==0.0.20
 PyYAML==6.0.2
